@@ -113,7 +113,10 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        char[] sub= new char[endIndex-beginIndex+1];
+        if (arr.length==0 || beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex) {
+            return null;
+        }
+        char[] sub= new char[endIndex-beginIndex];
         int j=0;
         for (int i=beginIndex; i<endIndex;i++){
             sub[j]=arr[i];
@@ -169,6 +172,13 @@ public class ArrCharOps {
     public static int compareTo(String str1, String str2) {
         if (str1.length()==0 || str2.length()==0){
             return -2;
+        }
+        if (str1.isEmpty()&& str2.isEmpty()){
+            return 0;
+        } else if (str1.isEmpty()){
+            return -1;
+        } else if (str2.isEmpty()){
+            return 1;
         }
             int minLength = Math.min(str1.length(), str2.length());
             for (int i=0 ; i< minLength; i++){
