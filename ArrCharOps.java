@@ -47,10 +47,7 @@ public class ArrCharOps {
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        if (arr1.length!=arr2.length) return false;
-
-        if (arr1.length==0 || arr2.length==0) return false;
-        
+        if (arr1.length!=arr2.length) return false;        
         for (int i=0; i<arr1.length;i++) {
             if (charAt(arr1, i)!=charAt(arr2, i)){
                         return false; 
@@ -117,8 +114,8 @@ public class ArrCharOps {
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         char[] sub= new char[endIndex-beginIndex+1];
-        for (int i=beginIndex; i<=endIndex;i++){
-            int j=0;
+        int j=0;
+        for (int i=beginIndex; i<endIndex;i++){
             sub[j]=arr[i];
             j++;
         }
@@ -135,9 +132,10 @@ public class ArrCharOps {
     public static long hashCode(char[] arr) {
         int n = arr.length;
         int result=0;
+        int power= (int)Math.pow(7,n-1);
         for (int i=0; i<n ; i++){
-            result+=arr[i]*Math.pow(7,(n-1));
-            n--;
+            result+=arr[i]*power;
+            power/=7;
         }
 
         return result;
