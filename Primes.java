@@ -4,7 +4,7 @@ public class Primes {
         System.out.println("prime numbers up to "+ N+ ":");
         
         int count=primes(N);
-        System.out.println("There are "+ count+"primes between 2 and "+N+ ". ("+(int)(((double)count/N)*100)+"% are primes)");
+        System.out.println("There are "+ count+" primes between 2 and "+N+ " ("+(int)(((double)count/N)*100)+"% are primes)");
     }
 
     public static int primes(int N) {
